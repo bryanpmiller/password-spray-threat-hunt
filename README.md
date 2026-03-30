@@ -1,14 +1,11 @@
+# 🛡️ Threat Hunt Report – Hide Your RDP: Password Spray Leads to Full Compromise
 <p align="center">
   <img
     src="screenshots/ThreatLogo.png"
-    width="1200"
+    width="600"
     alt="Threat Hunt Cover Image"
   />
 </p>
-
-# 🛡️ Threat Hunt Report – Hide Your RDP: Password Spray Leads to Full Compromise
-
-> Built from the provided report template, completed PWDSpray answers receipt, and the saved KQL query set.
 
 ---
 
