@@ -583,28 +583,3 @@ Escalate outbound traffic to uncommon ports when it follows archive creation or 
 This PWDSpray investigation shows a realistic and complete compromise path: external password spray, successful RDP access, malicious execution, scheduled-task persistence, Defender evasion, host discovery, archive creation, beaconing, and attempted exfiltration. The attacker demonstrated enough tradecraft to maintain access and prepare data theft while relying on simple but effective built-in Windows mechanisms and low-complexity evasion. From a defender perspective, the strongest value in this hunt is the ability to connect each phase through reproducible KQL, making the case highly suitable for portfolio, interview, and tabletop use.
 
 ---
-
-## 📎 Analyst Notes
-
-- Report structured from the supplied markdown template and completed flag Findingss.
-- KQL sections preserve the simple investigative logic used during the hunt.
-- Exact screenshots were not included in the source file set, so screenshot placeholders were replaced with notes.
-- Evidence in this report is limited to the Findingss and queries preserved in the provided artifacts.
-- Suitable for portfolio presentation, interview walkthroughs, and future detection engineering reference.
-
----
-
-## ✅ Final Findings Summary
-
-| Flag | Findings |
-|---:|---|
-| 1 | `159.26.106.84` |
-| 2 | `slflare` |
-| 3 | `msupdate.exe` |
-| 4 | `"msupdate.exe" -ExecutionPolicy Bypass -File C:\Users\Public\update_check.ps1` |
-| 5 | `MicrosoftUpdateSync` |
-| 6 | `C:\Windows\Temp` |
-| 7 | `"cmd.exe" /c systeminfo` |
-| 8 | `backup_sync.zip` |
-| 9 | `185.92.220.87` |
-| 10 | `185.92.220.87:8081` |
