@@ -1,7 +1,7 @@
 # 🛡️ Threat Hunt Report – Password Spray Leads to Full Compromise
 <p align="center">
   <img
-    src="screenshots/ThreatLogo.png"
+    src="screenshots/threatlogo.png"
     width="600"
     alt="Threat Hunt Cover Image"
   />
@@ -143,7 +143,7 @@ DeviceLogonEvents
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 1 Screenshot](screenshots/flag1.png)
 
 ### 🛠️ Detection Recommendation
 
@@ -188,7 +188,7 @@ DeviceLogonEvents
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 2 Screenshot](screenshots/flag2.png)
 
 ### 🛠️ Detection Recommendation
 
@@ -234,7 +234,7 @@ or FolderPath contains "downloads"
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 3 Screenshot](screenshots/flag3.png)
 
 ### 🛠️ Detection Recommendation
 
@@ -284,7 +284,7 @@ or FolderPath contains "downloads"
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 4 Screenshot](screenshots/flag4.png)
 
 ### 🛠️ Detection Recommendation
 
@@ -328,7 +328,7 @@ DeviceEvents
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 5 Screenshot](screenshots/flag5.png)
 
 ### 🛠️ Detection Recommendation
 
@@ -372,7 +372,7 @@ DeviceRegistryEvents
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 6 Screenshot](screenshots/flag6.png)
 
 ### 🛠️ Detection Recommendation
 
@@ -420,7 +420,7 @@ DeviceProcessEvents
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 7 Screenshot](screenshots/flag7.png)
 
 ### 🛠️ Detection Recommendation
 
@@ -463,7 +463,7 @@ DeviceFileEvents
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 8 Screenshot](screenshots/flag8.png)
 
 ### 🛠️ Detection Recommendation
 
@@ -507,7 +507,7 @@ DeviceNetworkEvents
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 9 Screenshot](screenshots/flag9.png)
 
 ### 🛠️ Detection Recommendation
 
@@ -551,7 +551,7 @@ DeviceNetworkEvents
 ```
 
 ### 🖼️ Screenshot
-Not included in the provided source files.
+![Flag 10 Screenshot](screenshots/flag10.png)
 
 ### 🛠️ Detection Recommendation
 
