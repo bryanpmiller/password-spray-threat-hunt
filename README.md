@@ -1,4 +1,4 @@
-# 🛡️ Threat Hunt Report – Hide Your RDP: Password Spray Leads to Full Compromise
+# 🛡️ Threat Hunt Report – Password Spray Leads to Full Compromise
 <p align="center">
   <img
     src="screenshots/ThreatLogo.png"
@@ -20,7 +20,7 @@ This investigation reconstructed a password spray–driven compromise against a 
 - Identify malicious activity across endpoint, process, registry, file, and network telemetry
 - Reconstruct the attacker timeline from initial access to outbound activity
 - Map observed behavior to MITRE ATT&CK techniques
-- Preserve the KQL hunt logic used to answer each flag
+- Preserve the KQL hunt logic used to Findings each flag
 - Document detection opportunities and defensive improvements
 
 ---
@@ -28,7 +28,7 @@ This investigation reconstructed a password spray–driven compromise against a 
 ## 🧭 Scope & Environment
 
 - **Scenario:** Cyber Range SOC – Virtual Machine Compromise
-- **Hunt Name:** Hide Your RDP: Password Spray Leads to Full Compromise
+- **Hunt Name:** Password Spray Leads to Full Compromise
 - **Primary Endpoint:** `slflarewinsysmo` (exact hostname used in later confirmed queries)
 - **Target Pattern:** `DeviceName contains "flare"`
 - **Compromised Account:** `slflare`
@@ -123,7 +123,7 @@ The earliest successful external RDP source IP identified in the completed inves
 | Field | Value |
 |------|-------|
 | MITRE | `T1110.001 – Brute Force: Password Guessing` |
-| Answer | `159.26.106.84` |
+| Findings | `159.26.106.84` |
 | Target Pattern | `DeviceName contains "flare"` |
 | Related Account | `slflare` |
 | Relevant Table | `DeviceLogonEvents` |
@@ -168,7 +168,7 @@ The compromised account used for the successful RDP access was `slflare`.
 | Field | Value |
 |------|-------|
 | MITRE | `T1078 – Valid Accounts` |
-| Answer | `slflare` |
+| Findings | `slflare` |
 | Related IP | `159.26.106.84` |
 | Relevant Table | `DeviceLogonEvents` |
 | Access Method | RDP / Remote interactive logon pivot |
@@ -213,7 +213,7 @@ The suspicious binary executed by the attacker was `msupdate.exe`.
 | Field | Value |
 |------|-------|
 | MITRE | `T1059.003`, `T1204.002` |
-| Answer | `msupdate.exe` |
+| Findings | `msupdate.exe` |
 | Account Context | `slflare` |
 | Hunt Focus | Suspicious paths such as Public, Temp, or Downloads |
 | Relevant Table | `DeviceProcessEvents` |
@@ -230,6 +230,7 @@ DeviceProcessEvents
 | where FolderPath contains "public"
 or FolderPath contains "temp"
 or FolderPath contains "downloads"
+| project TimeGenerated, AccountName, DeviceName, FileName, ProcessCommandLine
 ```
 
 ### 🖼️ Screenshot
@@ -279,6 +280,7 @@ DeviceProcessEvents
 | where FolderPath contains "public"
 or FolderPath contains "temp"
 or FolderPath contains "downloads"
+| project TimeGenerated, AccountName, DeviceName, FileName, ProcessCommandLine
 ```
 
 ### 🖼️ Screenshot
@@ -307,7 +309,7 @@ The attacker-created scheduled task was `MicrosoftUpdateSync`.
 | Field | Value |
 |------|-------|
 | MITRE | `T1053.005 – Scheduled Task/Job: Scheduled Task` |
-| Answer | `MicrosoftUpdateSync` |
+| Findings | `MicrosoftUpdateSync` |
 | Relevant Table | `DeviceEvents` |
 | ActionType | `ScheduledTaskCreated` |
 | Pivot Window | `TimeGenerated > 2025-09-16T19:38:40.063299Z` |
@@ -399,7 +401,7 @@ The earliest discovery command identified was:
 | Field | Value |
 |------|-------|
 | MITRE | `T1082 – System Information Discovery` |
-| Answer | `"cmd.exe" /c systeminfo` |
+| Findings | `"cmd.exe" /c systeminfo` |
 | Exact Host | `slflarewinsysmo` |
 | Relevant Table | `DeviceProcessEvents` |
 | Hunt Terms | `systeminfo`, `hostname`, `ipconfig /all` |
@@ -443,7 +445,7 @@ The attacker created `backup_sync.zip`.
 | Field | Value |
 |------|-------|
 | MITRE | `T1560.001 – Archive Collected Data: Local Archiving` |
-| Answer | `backup_sync.zip` |
+| Findings | `backup_sync.zip` |
 | Exact Host | `slflarewinsysmo` |
 | Relevant Table | `DeviceFileEvents` |
 | Hunt Focus | `.zip`, `.rar`, `.7z` files in Temp/AppData/ProgramData |
@@ -486,7 +488,7 @@ The destination identified for command-and-control activity was `185.92.220.87`.
 | Field | Value |
 |------|-------|
 | MITRE | `T1071.001`, `T1105` |
-| Answer | `185.92.220.87` |
+| Findings | `185.92.220.87` |
 | Exact Host | `slflarewinsysmo` |
 | Relevant Table | `DeviceNetworkEvents` |
 | Hunt Filter | `InitiatingProcessCommandLine has_any ("http", "https")` |
@@ -530,7 +532,7 @@ The attacker attempted exfiltration to `185.92.220.87:8081`.
 | Field | Value |
 |------|-------|
 | MITRE | `T1048.003 – Exfiltration Over Unencrypted Protocol` |
-| Answer | `185.92.220.87:8081` |
+| Findings | `185.92.220.87:8081` |
 | Related Archive | `backup_sync.zip` |
 | Related C2 IP | `185.92.220.87` |
 | Relevant Table | `DeviceNetworkEvents` |
@@ -584,17 +586,17 @@ This PWDSpray investigation shows a realistic and complete compromise path: exte
 
 ## 📎 Analyst Notes
 
-- Report structured from the supplied markdown template and completed flag answers.
+- Report structured from the supplied markdown template and completed flag Findingss.
 - KQL sections preserve the simple investigative logic used during the hunt.
 - Exact screenshots were not included in the source file set, so screenshot placeholders were replaced with notes.
-- Evidence in this report is limited to the answers and queries preserved in the provided artifacts.
+- Evidence in this report is limited to the Findingss and queries preserved in the provided artifacts.
 - Suitable for portfolio presentation, interview walkthroughs, and future detection engineering reference.
 
 ---
 
-## ✅ Final Answer Summary
+## ✅ Final Findings Summary
 
-| Flag | Answer |
+| Flag | Findings |
 |---:|---|
 | 1 | `159.26.106.84` |
 | 2 | `slflare` |
