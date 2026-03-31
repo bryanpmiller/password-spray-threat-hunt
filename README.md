@@ -1,7 +1,7 @@
 # 🛡️ Threat Hunt Report – Hide Your RDP: Password Spray Leads to Full Compromise
 <p align="center">
   <img
-    src="screenshots/ThreatLogo.png"
+    src="screenshots/threatlogo.png"
     width="600"
     alt="Threat Hunt Cover Image"
   />
